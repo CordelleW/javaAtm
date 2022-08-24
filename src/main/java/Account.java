@@ -16,7 +16,9 @@ public class Account {
 
         this.transactions = new ArrayList<Transaction>(); // init transacitons
 
-        holder.addAccount(this);
-        theBank.addAccount(this);
+    }
+
+    public String getUUID() {
+        return this.uuid;
     }
 }

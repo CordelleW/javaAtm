@@ -34,10 +34,53 @@ public class Bank {
         return uuid;
     }
     public String getNewAccountUUID() {
-        return "nothing";
+        String uuid;
+        Random rng = new Random();
+        int len = 10;
+        boolean nonUnique;
+
+        // loop until we get unique ID
+        do {
+            // generate the number
+            uuid = "";
+            for (int c = 0; c <len; c++) {
+                uuid += ((Integer)rng.nextInt(10)).toString();
+            }
+            nonUnique = false;
+            for (Account a : this.accounts) {
+                if (uuid.compareTo(a.getUUID()) == 0) {
+                    nonUnique = true;
+                    break;
+                }
+            }
+        } while (nonUnique);
+        return uuid;
     }
 
-    public void addAccount(Account anAcct) {
+    public  void addAccount(Account anAcct) {
         this.accounts.add(anAcct);
+    }
+
+    public User addUser(String firstName, String lastName, String pin) {
+       User newUser = new User(firstName, lastName, pin, this);
+       this.users.add(newUser);
+
+       Account newAccount = new Account("Savings" newUser, this);
+       newUser.addAccount(newAccount);
+       this.accounts.add(newAccount);
+
+        return newUser;
+    }
+
+    public User userLogin(String userID, String pin) {
+
+        for (User u: this.users) {
+
+            if (u.getUUID().compareTo(userID) == 0 && u.validatePin(pin)) {
+                return u;
+            }
+        }
+
+        return null;
     }
 }
