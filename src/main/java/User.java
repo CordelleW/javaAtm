@@ -27,8 +27,21 @@ public class User {
             System.err.println("error, caught NoSuchAlgorithmException");
             e.printStackTrace();
             System.exit(1);
-
         }
+
+        this.uuid = theBank.getNewUserUUID(); // get a new unique id for user
+
+        this.accounts = new ArrayList<Account>(); //create empty list of accounts
+
+        System.out.printf("New user %s, %s with ID %s created. \n", lastName, firstName, this.uuid);
+    }
+
+    public void addAccount(Account anAcct) {
+        this.accounts.add(anAcct);
+    }
+
+    public String getUUID() {
+        return this.uuid;
     }
 
 }
