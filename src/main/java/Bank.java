@@ -9,6 +9,13 @@ public class Bank {
 
     private ArrayList<Account> accounts;
 
+    public  Bank(String name) {
+        this.name = name;
+        this.users = new ArrayList<User>();
+        this.accounts = new ArrayList<Account>();
+
+    }
+
     public String getNewUserUUID() {
 
         String uuid;
@@ -65,7 +72,7 @@ public class Bank {
        User newUser = new User(firstName, lastName, pin, this);
        this.users.add(newUser);
 
-       Account newAccount = new Account("Savings" newUser, this);
+       Account newAccount = new Account("Savings", newUser, this);
        newUser.addAccount(newAccount);
        this.accounts.add(newAccount);
 
