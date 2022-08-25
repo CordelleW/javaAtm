@@ -3,6 +3,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
+
 public class User {
 
     private String firstName;
@@ -56,6 +57,27 @@ public class User {
         }
         return false;
     }
+
+    public String getFirstName(){
+        return this.firstName;
+    }
+
+    public void printAccountsSummary() {
+        System.out.printf("\n\n%s's accounts summary", this.firstName);
+        for (int a = 0; a < this.accounts.size(); a++) {
+            System.out.printf("%d) %s\n", a+1,  this.accounts.get(a).getSummaryLine());
+        }
+        System.out.println();
+    }
+
+    public int numAccounts() {
+        return this.accounts.size();
+    }
+
+    public void printAcctTransHistory(int acctIdx) {
+        this.accounts.get(acctIdx).printTransHistory();
+    }
+
 
 
 }
