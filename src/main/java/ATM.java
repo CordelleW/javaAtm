@@ -40,7 +40,7 @@ public class ATM {
 
         // prompt for id/pin until correct one is reached
         do {
-            System.out.printf("\n\n Welcome to %s\n\n", theBank.getName());
+            System.out.printf("\n\nWelcome to %s\n\n", theBank.getName());
             System.out.print("Enter user ID: ");
             userID = sc.nextLine();
             System.out.printf("Enter pin: ");
@@ -71,10 +71,10 @@ public class ATM {
         int choice;
 
         do {
-            System.out.printf("Welcome %s, what would you like to do?", theUser.getFirstName());
+            System.out.printf("Welcome %s, what would you like to do?\n", theUser.getFirstName());
 
             System.out.println(" 1) Show transaction history");
-            System.out.println(" 2) Withdrawl");
+            System.out.println(" 2) Withdraw");
             System.out.println(" 3) Deposit");
             System.out.println(" 4) Transfer");
             System.out.println(" 5) Quit");
@@ -143,7 +143,7 @@ public class ATM {
 
         //get account to transfer from
         do {
-            System.out.printf("Enter the number (1-%d) of the acount\n to transfer from: ");
+            System.out.printf("Enter the number (1-%d) of the acount\n to transfer from: ", theUser.numAccounts());
             fromAcct = sc.nextInt() - 1;
             if (fromAcct < 0 || fromAcct >= theUser.numAccounts()) {
                 System.out.println("Invalid account, try again.");
@@ -190,7 +190,7 @@ public class ATM {
 
         //get account to transfer from
         do {
-            System.out.printf("Enter the number (1-%d) of the acount\n to transfer from: ");
+            System.out.printf("Enter the number (1-%d) of the acount\n to transfer from: ", theUser.numAccounts());
             fromAcct = sc.nextInt() - 1;
             if (fromAcct < 0 || fromAcct >= theUser.numAccounts()) {
                 System.out.println("Invalid account, try again.");
@@ -230,7 +230,7 @@ public class ATM {
 
         //get account to transfer from
         do {
-            System.out.printf("Enter the number (1-%d) of the acount\n to transfer from: ");
+            System.out.printf("Enter the number (1-%d) of the acount\n to transfer from: ", theUser.numAccounts());
             toAcct = sc.nextInt() - 1;
             if (toAcct < 0 || toAcct >= theUser.numAccounts()) {
                 System.out.println("Invalid account, try again.");
