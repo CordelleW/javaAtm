@@ -110,7 +110,7 @@ public class ATM {
             }
         } while(theAcct < 0 || theAcct >= theUser.numAccounts());
 
-        theUser.printAcctTransHistory();
+        theUser.printAcctTransHistory(theAcct);
     }
 
 }
